@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.EventSystems;
 
 public class CarManager : MonoBehaviour
 {
     public GameObject indicator;
     public GameObject MyCar;
+    public float relocationDistance = 1.0f;
 
     ARRaycastManager arManager;
     GameObject placedObject;
@@ -26,6 +28,12 @@ public class CarManager : MonoBehaviour
     {
         DetectGround();
         //인디케이터가 활성화 중일 때 화면을 터치하면 자동차 모델링이 생성되게 할것임
+        //만약, 현재 클릭 or 터치한 오브젝트가 UI 오브젝트라면 Update함수를 종료
+        if(EventSystem.current.currentSelectedGameObject)
+        {
+            return;
+        }
+        //인디케이터가 활성화 중이면서 화면 터치가 있는 경우
         if(indicator.activeInHierarchy && Input.touchCount > 0)
         {
             //첫 번째 터치 상태를 가져옴
@@ -38,12 +46,19 @@ public class CarManager : MonoBehaviour
                 //placedObject 변수에 할당함
                 if(placedObject == null)
                 {
-                    Instantiate(MyCar, indicator.transform.position, indicator.transform.rotation);
+                    placedObject = Instantiate(MyCar, indicator.transform.position, 
+                        indicator.transform.rotation);
                 }
                 //생성된 오브젝트가 있다면 그 오브젝트의 위치와 회전값을 변경함
                 else
                 {
-                    placedObject.transform.SetPositionAndRotation(indicator.transform.position, indicator.transform.rotation);
+                    if(Vector3.Distance(placedObject.transform.position,
+                        indicator.transform.position)>relocationDistance)
+                    {
+                        placedObject.transform.SetPositionAndRotation
+                            (indicator.transform.position, indicator.transform.rotation);
+                    }
+                        
                 }
             }
                 

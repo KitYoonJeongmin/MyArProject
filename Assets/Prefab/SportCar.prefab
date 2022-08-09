@@ -3304,7 +3304,7 @@ GameObject:
   - component: {fileID: 4521392377329912861}
   - component: {fileID: 4511400541585356201}
   - component: {fileID: 4480167784758804871}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SportCar20_Body_Col
   m_TagString: Untagged
   m_Icon: {fileID: 0}
