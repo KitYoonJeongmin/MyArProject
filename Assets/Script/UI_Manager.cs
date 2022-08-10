@@ -3,11 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
+using UnityEngine.UI;
 
 public class UI_Manager : MonoBehaviour
 {
     public ARFaceManager faceManager;
     public Material[] faceMats;
+    public Text indexText;
+
+    int vertNum = 0;
+    int vertCount = 468;
+
+    private void Start()
+    {
+        //최초의 인덱스 값을 0으로 초기화 함
+        indexText.text = vertNum.ToString();
+    }
+    public void IndexIncrease()
+    {
+        //vertNum의 값을 1증가시키되, 최대 인덱스를 넘지 않도록 함
+        int number = Mathf.Min(++vertNum, vertCount - 1);
+        indexText.text = number.ToString();
+    }
+    public void IndexDecrease()
+    {
+        //vertNum의 값을 1감소시키되, 0을 넘지 않도록 함
+        int number = Mathf.Max(--vertNum, 0);
+        indexText.text = number.ToString();
+    }
     //버튼 눌렀을 때 실행 함수
     public void ToggleMaskImage()
     {
