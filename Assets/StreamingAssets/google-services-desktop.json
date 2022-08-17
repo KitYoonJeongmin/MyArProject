@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "706404993867",
+    "project_id": "myarproject-3d6d5",
+    "firebase_url": "https://myarproject-3d6d5-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    "storage_bucket": "myarproject-3d6d5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:706404993867:android:337a7ccba133c058b6b6ce",
+        "android_client_info": {
+          "package_name": "com.JM.MyAR_Project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "706404993867-v4gqfhku7f6roeht3uqnmui1lh6nit2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHzbF7RiEQU3CBTNAgRc9HQg1bZe-llaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "706404993867-v4gqfhku7f6roeht3uqnmui1lh6nit2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
